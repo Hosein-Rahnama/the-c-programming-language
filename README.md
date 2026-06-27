@@ -28,3 +28,21 @@ Here is a short version of the table of contents, containing the title of the ch
 ## Compiler
 
 As the publishing year of the book suggests, it follows the C89 standards. However, we may use some new features of the C99 or C11 within the codes, which are supported by all modern compilers. You can take a look at this [wikipedia page][1] for a brief history of the C standards. All of the codes were tested with the `gcc` and `clang` compilers.
+
+## Scripts
+There is a small `./do` script, which handles running, cleaning and formatting of source codes. You can use it as shown below.
+```bash
+./do <command> <program> <version>
+```
+The `<command>` argument can be `run`, `clean`, or `format`. For exmaple, you can run a program like
+```bash
+./do run digits-counting ver-1
+```
+If some program does not have any specific version, then just use its name. Also, if you would like to remove all executables, you may run
+```bash
+./do clean --all
+```
+The formatting is done via `clang`'s formatter and its setting is included in the `.clang-format` file. You can format source files of a program seperately as above or format all the source files with
+```bash
+./do format --all
+```
