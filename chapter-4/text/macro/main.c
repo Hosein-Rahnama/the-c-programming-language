@@ -4,10 +4,9 @@
 
 #define max(A, B) ((A) > (B) ? (A) : (B))
 #define dprint(expr) printf(#expr " = %g\n", expr)
-#define paste(front, back) front ## back
+#define paste(front, back) front##back
 
-int main()
-{
+int main() {
     double x = -3, y = 5, xy, z;
     xy = x * y;
     z = max(x + y, x - y);

@@ -8,7 +8,7 @@ For example, using the `gcc` compiler on GNU/Linux or Windows, the command
 gcc main.c getline.c strindex.c -o main
 ```
     
-compiless the three files, placing the resulting object code in files `main.o`, `getline.o`, and `strindex.o`, then loads them all into an executable file `main.out` on GNU/Linus and `main.exe` on Windows. If you want to compile all of the `.c` files in the current directory together just use
+compiles the three files, placing the resulting object code in files `main.o`, `getline.o`, and `strindex.o`, then loads them all into an executable file `main.out` on GNU/Linux and `main.exe` on Windows. If you want to compile all of the `.c` files in the current directory together just use
 
 ```bash
 gcc *.c -o main
@@ -20,7 +20,7 @@ gcc *.c -o main
 gcc -c getline.c strindex.c
 ```
 
-If there is an error, say in `main.c`, that file can be recompiled by itself and the result loaded with the previous object files, with the command
+If there is an error, say in `main.c`, that file can be recompiled by itself and the result can be loaded with the previous object files via the command
 
 ```bash
 gcc main.c getline.o strindex.o -o main

@@ -2,12 +2,12 @@
 
 #include <stdio.h>
 
-int main()
-{
+int main() {
     int c;
-    
-    while ((c = getchar()) != EOF)
+
+    while ((c = getchar()) != EOF) {
         putchar(c);
+    }
 
     printf("Recieved %d.", c);
 }

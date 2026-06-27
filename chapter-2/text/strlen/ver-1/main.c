@@ -5,8 +5,7 @@
 
 int my_strlen(char s[]);
 
-int main()
-{
+int main() {
     char sample[] = "This is a string constant which is technically an array of characters";
 
     printf("Library: %d\n", strlen(sample));
@@ -15,13 +14,13 @@ int main()
     return 0;
 }
 
-int my_strlen(char s[])
-{
+int my_strlen(char s[]) {
     int i;
 
     i = 0;
-    while (s[i] != '\0')
+    while (s[i] != '\0') {
         i++;
+    }
 
     return i;
 }

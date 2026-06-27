@@ -1,15 +1,14 @@
-/* This program converts an uppercase character to a 
-   lowercase character. */
+/* This program converts an uppercase character to a lowercase character. */
 
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 
-int main()
-{
+int main() {
     char c;
 
-    while ((c = getchar()) != EOF)
+    while ((c = getchar()) != EOF) {
         putchar(tolower(c));
+    }
 
     return 0;
 }

@@ -1,25 +1,22 @@
 /* This is a calculator that takes inputs in reverse polish notation. */
 
 #include <stdio.h>
-#include <stdlib.h>         // For atof
+#include <stdlib.h>
 
-#define MAXOP 100           // Maximum size of operand or operator
-#define NUMBER '0'          // Signal that a number was found
+#define MAXOP 100
+#define NUMBER '0'
 
 int getop(char s[]);
 void push(double f);
 double pop(void);
 
-int main()
-{
+int main() {
     int type;
     double op2;
-    char s[MAXOP];          // Character array containing an operand or operator
+    char s[MAXOP];
 
-    while ((type = getop(s)) != EOF)
-    {
-        switch (type)
-        {
+    while ((type = getop(s)) != EOF) {
+        switch (type) {
             case NUMBER:
                 push(atof(s));
                 break;
@@ -35,11 +32,12 @@ int main()
                 break;
             case '/':
                 op2 = pop();
-                if (op2 != 0.0)
+                if (op2 != 0.0) {
                     push(pop() / op2);
-                else
+                } else {
                     printf("\t%.8g\n", pop());
-                    break;
+                }
+                break;
             case '\n':
                 printf("\tans = %f\n", pop());
                 printf("Enter a new expression or finish the program.\n");
@@ -49,31 +47,29 @@ int main()
                 break;
         }
     }
-    
+
     return 0;
 }
 
-#define MAXVAL 100          // Maximum depth of val stack
+#define MAXVAL 100
 
-int sp = 0;                 // Next free stack position
-double val[MAXVAL];         // Value stack
+int sp = 0;
+double val[MAXVAL];
 
-// Push f onto value stack
-void push(double f)
-{
-    if (sp < MAXVAL)
+// Push f onto value stack.
+void push(double f) {
+    if (sp < MAXVAL) {
         val[sp++] = f;
-    else
+    } else {
         printf("error: stack full, can't push %g\n", f);
+    }
 }
 
-// Pop and return top value from tack.
-double pop(void)
-{
-    if (sp > 0)
+// Pop and return top value from stack.
+double pop(void) {
+    if (sp > 0) {
         return val[--sp];
-    else
-    {
+    } else {
         printf("error: stack empty\n");
         return 0.0;
     }
@@ -84,45 +80,47 @@ double pop(void)
 int getch(void);
 void ungetch(int c);
 
-int getop(char s[])
-{
+int getop(char s[]) {
     int i, c;
 
     while ((s[0] = c = getch()) == ' ' || c == '\t');
     s[1] = '\0';
     // If c is an operator return it.
-    if (!isdigit(c) && c != '.')
+    if (!isdigit(c) && c != '.') {
         return c;
+    }
     i = 0;
     // Collect integer part.
-    if (isdigit(c))
+    if (isdigit(c)) {
         while (isdigit(s[++i] = c = getch()));
+    }
     // Collect fraction part.
-    if (c == '.')
+    if (c == '.') {
         while (isdigit(s[++i] = c = getch()));
+    }
     s[i] = '\0';
-    if (c != EOF)
+    if (c != EOF) {
         ungetch(c);
+    }
 
     return NUMBER;
 }
 
 #define BUFSIZE 100
 
-char buf[BUFSIZE];          // Buffer for ungetch
-int bufp = 0;               // Next free position in buf
+char buf[BUFSIZE];
+int bufp = 0;
 
 // Get a (possibly pushed back) character.
-int getch(void)
-{
+int getch(void) {
     return (bufp > 0) ? buf[--bufp] : getchar();
 }
 
 // Push character back on input.
-void ungetch(int c)
-{
-    if (bufp >= BUFSIZE)
+void ungetch(int c) {
+    if (bufp >= BUFSIZE) {
         printf("ungetch: too many characters");
-    else
+    } else {
         buf[bufp++] = c;
+    }
 }

@@ -4,39 +4,39 @@
 #include "dcl.h"
 
 // Parse a declarator.
-void dcl(void)
-{
+void dcl(void) {
     int ns;
 
-    for (ns = 0; gettoken() == '*'; NULL)
+    for (ns = 0; gettoken() == '*'; NULL) {
         ns++;
+    }
     dirdcl();
-    while (ns-- > 0)
+    while (ns-- > 0) {
         strcat(out, " pointer to");
+    }
 }
 
 // Parse a direct declarator.
-void dirdcl(void)
-{
+void dirdcl(void) {
     int type;
 
-    if (tokentype == '(')
-    {
+    if (tokentype == '(') {
         dcl();
-        if (tokentype != ')')
+        if (tokentype != ')') {
             printf("error: missing )\n");
-    }
-    else if (tokentype == NAME)
+        }
+    } else if (tokentype == NAME) {
         strcpy(name, token);
-    else
+    } else {
         printf("error: expected name or (dcl)\n");
-    while ((type = gettoken()) == PARENS || type == BRACKETS)
-        if (type == PARENS)
+    }
+    while ((type = gettoken()) == PARENS || type == BRACKETS) {
+        if (type == PARENS) {
             strcat(out, " function returning");
-        else
-        {
+        } else {
             strcat(out, " array");
             strcat(out, token);
             strcat(out, " of");
         }
+    }
 }

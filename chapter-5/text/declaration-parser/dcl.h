@@ -3,7 +3,11 @@
 
 #define MAXTOKEN 100
 
-enum {NAME, PARENS, BRACKETS};
+enum {
+    NAME,
+    PARENS,
+    BRACKETS
+};
 
 // Declare external variables.
 extern int tokentype;

@@ -6,38 +6,37 @@
 
 int binsearch(int x, int v[], int n);
 
-int main()
-{
+int main() {
     int v[] = {-9, -4, 0, 1, 4, 7, 8, 11, 25, 44};
     int x = 7;
     int n = sizeof(v) / sizeof(int);
     int index;
-    
+
     index = binsearch(x, v, n);
-    if (index >= 0)
+    if (index >= 0) {
         printf("The index of %d in the given array is %d.", x, index);
-    else
+    } else {
         printf("There was no occurence of %d in the given array.", x);
+    }
 
     return 0;
 }
 
-int binsearch(int x, int v[], int n)
-{
+int binsearch(int x, int v[], int n) {
     int low, high, mid;
 
     low = 0;
     high = n - 1;
-    while (low <= high)
-    {
+    while (low <= high) {
         mid = (low + high) / 2;
-        if (x < v[mid])
-            high = mid -1;
-        else if (x > v[mid])
+        if (x < v[mid]) {
+            high = mid - 1;
+        } else if (x > v[mid]) {
             low = mid + 1;
-        else
+        } else {
             // Found a match.
             return mid;
+        }
     }
     // Found no match.
     return -1;

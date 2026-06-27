@@ -3,17 +3,15 @@
 
 #include <stdio.h>
 
-int main()
-{
+int main() {
     double sum, v;
     int rounded_sum;
 
     sum = rounded_sum = 0;
-    while (scanf("%lf", &v) == 1)
-    {
+    while (scanf("%lf", &v) == 1) {
         printf("\tsum: %g\n", sum += v);
         printf("\trounded sum: %d\n", rounded_sum += v);
     }
-        
+
     return 0;
 }

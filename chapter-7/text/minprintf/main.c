@@ -1,20 +1,18 @@
-/* This program is a minimal version of printf, to show how to write a 
+/* This program is a minimal version of printf, to show how to write a
    function that processes a variable-length argument list in a portable way. */
 
-#include <stdio.h>
 #include <stdarg.h>
+#include <stdio.h>
 
-void minprintf(char *fmt, ...);
+void minprintf(char* fmt, ...);
 
-int main()
-{
+int main() {
     minprintf("This a sample %s containing at most %d characters.", "formaated string", 1000);
 
     return 0;
 }
 
-void minprintf(char *fmt, ...)
-{
+void minprintf(char* fmt, ...) {
     // Points to each unnamed arg in turn.
     va_list ap;
     char *p, *sval;
@@ -23,15 +21,12 @@ void minprintf(char *fmt, ...)
 
     // Make ap point to first unnamed arg.
     va_start(ap, fmt);
-    for (p = fmt; *p; p++)
-    {
-        if (*p != '%')
-        {
+    for (p = fmt; *p; p++) {
+        if (*p != '%') {
             putchar(*p);
             continue;
         }
-        switch (*++p)
-        {
+        switch (*++p) {
             case 'd':
                 ival = va_arg(ap, int);
                 printf("%d", ival);
@@ -41,8 +36,9 @@ void minprintf(char *fmt, ...)
                 printf("%f", dval);
                 break;
             case 's':
-                for (sval = va_arg(ap, char *); *sval; sval++)
+                for (sval = va_arg(ap, char*); *sval; sval++) {
                     putchar(*sval);
+                }
                 break;
             default:
                 putchar(*p);

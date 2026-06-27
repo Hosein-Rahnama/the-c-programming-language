@@ -1,6 +1,6 @@
 ## The C Programming Language
 
-This is a repository for codes from the text and solutions to the exercises of the following book, which is also known as `K&R`.
+This is a repository for codes from the text of the following book, known as `K&R`. I would like to add solutions to the exercises whenever time permits.
 
 - B. W. Kernighan, and D. M. Ritchie, *The C Programming Language*, 2nd Edition, Prentice Hall, 1988.
 
@@ -27,4 +27,4 @@ Here is a short version of the table of contents, containing the title of the ch
 
 ## Compiler
 
-As the publishing year of the book suggests, it follows the C89 standards. However, we may use some new features of the C99 or C11 within the codes, which are supported by all modern compilers. You can take a look at this [wikipedia page][1] for a brief history of the C standards. All of the codes were tested with the `gcc` compiler.
+As the publishing year of the book suggests, it follows the C89 standards. However, we may use some new features of the C99 or C11 within the codes, which are supported by all modern compilers. You can take a look at this [wikipedia page][1] for a brief history of the C standards. All of the codes were tested with the `gcc` and `clang` compilers.

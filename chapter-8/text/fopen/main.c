@@ -1,25 +1,24 @@
-/* This program tries to simulate the fopen function of the standard library by using
-   the low-level input and output interfaces provided by Linux. */
+/* This program tries to simulate the fopen function of the standard library by
+   using the low-level input and output interfaces provided by Linux. */
 
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
+#include <unistd.h>
 
 #include "usrio.h"
 #include "util.h"
 
-int main()
-{
+int main() {
     char c;
     char buf[10];
-    char *endl = "\n";
-    char *mode = "r";
-    FILE *fp;
-    
-    if ((fp = fopen("input.txt", mode)) != NULL)
-    {
-        while ((c = getc(fp)) != EOF)
+    char* endl = "\n";
+    char* mode = "r";
+    FILE* fp;
+
+    if ((fp = fopen("input.txt", mode)) != NULL) {
+        while ((c = getc(fp)) != EOF) {
             write(1, &c, 1);
+        }
         write(1, endl, 1);
         write(1, endl, 1);
 
@@ -37,9 +36,9 @@ int main()
         itoa(ferror(fp), buf);
         write(1, buf, 1);
         write(1, endl, 1);
-    }
-    else
+    } else {
         print("Error: could not open file.\n");
+    }
 
     return 0;
 }

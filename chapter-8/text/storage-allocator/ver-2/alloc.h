@@ -1,25 +1,23 @@
 #ifndef ALLOC
 #define ALLOC
 
-#define NALLOC 1024                 // Minimum number of units to request
+#define NALLOC 1024
 
-typedef long int Align;             // For alignment to long boundary
+typedef long int Align;
 
-union header
-{
-    struct
-    {
-        union header *ptr;          // Next block if on free list
-        unsigned int size;          // Size of this block
+union header {
+    struct {
+        union header* ptr;
+        unsigned int size;
     } s;
-    Align x;                        // Force alignment of blocks
+    Align x;
 };
 
 typedef union header Header;
 
-void *mem_alloc(unsigned int);
-static Header *more_core(unsigned int);
-void mem_free(void *);
-int free_space(void);
+void* memalloc(unsigned int);
+void memfree(void*);
+int freespace(void);
+static Header* morecore(unsigned int);
 
 #endif

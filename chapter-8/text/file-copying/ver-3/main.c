@@ -5,13 +5,13 @@
 
 #define BUFSIZE 128
 
-int main()
-{
+int main() {
     char buf[BUFSIZE];
     int n;
 
-    while ((n = read(0, buf, BUFSIZE)) > 0)
+    while ((n = read(0, buf, BUFSIZE)) > 0) {
         write(1, buf, n);
+    }
     printf("\n");
 
     return 0;

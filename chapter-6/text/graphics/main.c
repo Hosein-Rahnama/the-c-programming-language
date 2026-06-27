@@ -1,22 +1,20 @@
 /* This program illustrates the usage of structures and operators '.' and '->'
    via concepts that occur in graphics. */
 
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 #define XMAX 16
 #define YMAX 9
 #define min(a, b) ((a) < (b) ? (a) : (b))
 #define max(a, b) ((a) > (b) ? (a) : (b))
 
-struct point 
-{
+struct point {
     int x;
     int y;
 };
 
-struct rect 
-{
+struct rect {
     struct point pt1;
     struct point pt2;
 };
@@ -26,8 +24,7 @@ struct point addpoint(struct point p1, struct point p2);
 int ptinrect(struct point p, struct rect r);
 struct rect canonrect(struct rect r);
 
-int main()
-{
+int main() {
     struct point a = {3, 4};
     double dist = sqrt((double)(a.x * a.x + a.y * a.y));
     printf("Coordinates of point a are a.x = %d and a.y = %d.\n", a.x, a.y);
@@ -52,32 +49,28 @@ int main()
     return 0;
 }
 
-struct point makepoint(int x, int y)
-{
+struct point makepoint(int x, int y) {
     struct point temp;
     temp.x = x;
     temp.y = y;
     return temp;
 }
 
-struct point addpoint(struct point p1, struct point p2)
-{
+struct point addpoint(struct point p1, struct point p2) {
     p1.x += p2.x;
     p1.y += p2.y;
 
     return p1;
 }
 
-int ptinrect(struct point p, struct rect r)
-{
+int ptinrect(struct point p, struct rect r) {
     int xcheck = p.x >= r.pt1.x && p.x <= r.pt2.x;
     int ycheck = p.y >= r.pt1.y && p.y <= r.pt2.y;
 
     return xcheck && ycheck;
 }
 
-struct rect canonrect(struct rect r)
-{
+struct rect canonrect(struct rect r) {
     struct rect temp;
 
     temp.pt1.x = min(r.pt1.x, r.pt2.x);

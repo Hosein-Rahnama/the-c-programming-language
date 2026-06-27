@@ -4,29 +4,27 @@
    ensure that the functions declarations match their definitions. */
 #include "calc.h"
 
-#define MAXVAL 100                  // Maximum depth of val stack
+#define MAXVAL 100
 
-/* Declaing these external varialbes as static limits their scope to the 
+/* Declaing these external varialbes as static limits their scope to the
    rest of this source file. */
-static int sp = 0;                  // Next free stack position
-static double val[MAXVAL];          // Value stack
+static int sp = 0;
+static double val[MAXVAL];
 
-// Push f onto value stack
-void push(double f)
-{
-    if (sp < MAXVAL)
+// Push f onto value stack.
+void push(double f) {
+    if (sp < MAXVAL) {
         val[sp++] = f;
-    else
+    } else {
         printf("error: stack full, can't push %g\n", f);
+    }
 }
 
 // Pop and return top value from stack.
-double pop(void)
-{
-    if (sp > 0)
+double pop(void) {
+    if (sp > 0) {
         return val[--sp];
-    else
-    {
+    } else {
         printf("error: stack empty\n");
         return 0.0;
     }

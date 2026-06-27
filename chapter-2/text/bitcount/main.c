@@ -4,20 +4,20 @@
 
 int bitcount(unsigned int x);
 
-int main()
-{
+int main() {
     printf("%d", bitcount(2023));
 
     return 0;
 }
 
-int bitcount(unsigned int x)
-{
+int bitcount(unsigned int x) {
     int b;
 
-    for (b = 0; x != 0; x >>= 1)
-        if (x & 01)
+    for (b = 0; x != 0; x >>= 1) {
+        if (x & 01) {
             b++;
+        }
+    }
 
     return b;
 }

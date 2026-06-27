@@ -1,0 +1,19 @@
+# This sets the code style via clang-format.
+
+BasedOnStyle: LLVM
+Language: C
+BreakBeforeBraces: Attach
+IndentWidth: 4
+ColumnLimit: 120
+MaxEmptyLinesToKeep: 1
+PointerAlignment: Left
+InsertBraces: true
+InsertNewlineAtEOF: true
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortLoopsOnASingleLine: true
+IndentCaseLabels: true
+AlignAfterOpenBracket: false
+BreakAfterOpenBracketBracedList: true
+BreakBeforeCloseBracketBracedList: true
+ReflowComments: Never

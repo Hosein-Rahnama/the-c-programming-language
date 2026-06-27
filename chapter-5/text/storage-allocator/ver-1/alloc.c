@@ -2,29 +2,26 @@
 
 #include "alloc.h"
 
-#define ALLOCSIZE 1000                  // Size of available space
+#define ALLOCSIZE 1000
 
-static char allocbuf[ALLOCSIZE];        // Storage for allocation
-static char *allocp = allocbuf;         // Next free position
+static char allocbuf[ALLOCSIZE];
+static char* allocp = allocbuf;
 
-char *alloc(int n)
-{
-    if ((allocbuf + ALLOCSIZE) - allocp >= n)
-    {
+char* memalloc(int n) {
+    if ((allocbuf + ALLOCSIZE) - allocp >= n) {
         allocp += n;
         return allocp - n;
-    }
-    else
+    } else {
         return NULL;
+    }
 }
 
-void afree (char *p)
-{
-    if (p >= allocbuf && p < allocbuf + ALLOCSIZE)
+void memfree(char* p) {
+    if (p >= allocbuf && p < allocbuf + ALLOCSIZE) {
         allocp = p;
+    }
 }
 
-int free_space()
-{
+int freespace() {
     return allocbuf + ALLOCSIZE - allocp;
 }

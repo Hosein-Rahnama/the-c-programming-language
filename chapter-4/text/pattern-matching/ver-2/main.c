@@ -4,24 +4,23 @@
 
 #include <stdio.h>
 
-#define MAXLINE 1000                // Maximum input line length
+#define MAXLINE 1000
 
 int getline(char line[], int lim);
 int strindex(char text[], char pattern[]);
 
-int main()
-{
+int main() {
     char line[MAXLINE];
-    char pattern[] = "ould";        // Pattern to search for
+    char pattern[] = "ould";
     int found = 0;
 
-    while (getline(line, MAXLINE) > 0)
-        if (strindex(line, pattern) >= 0)
-        {
+    while (getline(line, MAXLINE) > 0) {
+        if (strindex(line, pattern) >= 0) {
             printf("%s", line);
             found++;
         }
+    }
 
-    // The environment that calls this program can use the number of matched patterns.   
+    // The environment that calls this program can use the number of matched patterns.
     return found;
 }

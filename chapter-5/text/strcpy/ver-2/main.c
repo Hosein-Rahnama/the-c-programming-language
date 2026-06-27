@@ -4,11 +4,10 @@
 
 #define SIZE 1000
 
-void my_strcpy(char *s, char *t);
+void my_strcpy(char* s, char* t);
 
-int main()
-{
-    char *t = "This is a sample string to be copied";
+int main() {
+    char* t = "This is a sample string to be copied";
     char s[SIZE];
 
     printf("Address of t: %p\n", t);
@@ -21,13 +20,11 @@ int main()
     return 0;
 }
 
-void my_strcpy(char *s, char *t)
-{
+void my_strcpy(char* s, char* t) {
     int i;
 
     i = 0;
-    while((*s = *t) != '\0')
-    {
+    while ((*s = *t) != '\0') {
         s++;
         t++;
     }

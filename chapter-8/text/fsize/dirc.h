@@ -4,31 +4,28 @@
 #include <fcntl.h>
 
 #define BUFSIZE 48
-#define NAMEMAX 256                 // Longest filename component; system-dependent
+#define NAMEMAX 256
 
-typedef struct linux_dirent         // Local directory entry 
-{   
-    long           d_ino;           // Inode number
-    off_t          d_off;           // Offset to next linux_dirent
-    unsigned short d_reclen;        // Length of this linux_dirent
-    char           d_name[];        // Name
+typedef struct linux_dirent {
+    long d_ino;
+    off_t d_off;
+    unsigned short d_reclen;
+    char d_name[];
 } LinuxDirEnt;
 
-typedef struct                      // Portable directory entry
-{
-    long ino;                       // Inode number
-    char name[NAMEMAX + 1];         // Name
+typedef struct {
+    long ino;
+    char name[NAMEMAX + 1];
 } DirEnt;
 
-typedef struct                      // Minimal Dir; no buffering, etc
-{
-    int    fd;                      // File descriptor for directory
-    DirEnt d;                       // The directory entry
+typedef struct {
+    int fd;
+    DirEnt d;
 } Dir;
 
-Dir *open_dir(char *);
-DirEnt *read_dir(Dir *);
-LinuxDirEnt *read_dirent(int);
-void close_dir(Dir *);
+Dir* open_dir(char*);
+DirEnt* read_dir(Dir*);
+LinuxDirEnt* read_dirent(int);
+void close_dir(Dir*);
 
 #endif

@@ -6,23 +6,22 @@
 #include "dcl.h"
 
 // Define external variables.
-int tokentype;                  // Type of last token
-char token[MAXTOKEN];           // Last token string
-char name[MAXTOKEN];            // Identifier name
-char datatype[MAXTOKEN];        // Data types like char, int, etc.
-char out[1000];                 // Output string
+int tokentype;
+char token[MAXTOKEN];
+char name[MAXTOKEN];
+char datatype[MAXTOKEN];
+char out[1000];
 
-int main()
-{
-    while (gettoken() != EOF)
-    {
+int main() {
+    while (gettoken() != EOF) {
         // First token on a given line is the datatype.
         strcpy(datatype, token);
         out[0] = '\0';
         // Parse rest of the line.
         dcl();
-        if (tokentype != '\n')
+        if (tokentype != '\n') {
             printf("syntax error\n");
+        }
         printf("%s: %s %s\n", name, out, datatype);
     }
 

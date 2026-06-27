@@ -1,21 +1,18 @@
-/* This program counts the number of digits, white spaces and 
-   other characters in the input. This is a second version of the 
-   program given in Chapter 1. */
+/* This program counts the number of digits, white spaces and other characters in 
+   the input. This is a second version of the program given in Chapter 1. */
 
 #include <stdio.h>
 
-int main()
-{
+int main() {
     int c, i, nwhite, nother, ndigit[10];
 
     nwhite = nother = 0;
-    for (i = 0; i < 10; i++)
+    for (i = 0; i < 10; i++) {
         ndigit[i] = 0;
+    }
 
-    while ((c = getchar()) != EOF)
-    {
-        switch (c)
-        {
+    while ((c = getchar()) != EOF) {
+        switch (c) {
             case '0':
             case '1':
             case '2':
@@ -39,13 +36,12 @@ int main()
         }
     }
 
-    for (i = 0; i < 10; i++)
-    {
+    for (i = 0; i < 10; i++) {
         printf("Occurrences of %d: ", i);
         printf(" %d\n", ndigit[i]);
-    }    
+    }
     printf("White Space: %d\n", nwhite);
     printf("Other: %d\n", nother);
-    
+
     return 0;
 }

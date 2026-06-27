@@ -1,17 +1,16 @@
 #ifndef TREE
 #define TREE
 
-typedef struct tnode *Treeptr;
+typedef struct tnode* Treeptr;
 
-typedef struct tnode        // The tree node
-{                  
-    char *word;             // Points to the text
-    int count;              // Number of occurences
-    Treeptr left;           // Left child
-    Treeptr right;          // Right child
+typedef struct tnode {
+    char* word;
+    int count;
+    Treeptr left;
+    Treeptr right;
 } Treenode;
 
-Treeptr addtree(Treeptr, char *);
+Treeptr addtree(Treeptr, char*);
 void treeprint(Treeptr);
 Treeptr talloc(void);
 
